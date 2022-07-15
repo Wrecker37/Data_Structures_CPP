@@ -3,18 +3,19 @@
 using namespace std;
 
 string reverseStr(string& str){
-  int n = str.length();
-  string reversed (n,' ');
+  int n = str.length() - 1;
+  // string reversed (n,' ');
   
-  for(int i = 0; i <= n / 2; i++){
-    reversed[i] = str[n-i-1];
-    reversed[n-i-1] = str[i];
+  for(int i = 0; i <= n; i++){
+    swap(str[i], str[n]);
+    // str[n] = str[i];
+    n--;
     // swap(str[i],str[n-i-1]);
   }
-  return reversed;
+  return str;
 }
 
-void PalindromeCheck(string str1, string str2){
+void isPalindrome(string str1, string str2){
     if(str1 == str2){
       cout << "equals" <<endl;
       
@@ -23,14 +24,13 @@ void PalindromeCheck(string str1, string str2){
     }
 }
 
-
 int main(){
-  string str = "madam";
+  string str = "Jairo";
   cout << str << endl;
   string rvrs = reverseStr(str);
   cout << rvrs << endl;
 
-  PalindromeCheck(str, rvrs);
+  isPalindrome(str, rvrs);
 
   return 0;
 }
